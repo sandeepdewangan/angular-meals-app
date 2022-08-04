@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../model/recipe.model';
 
 @Component({
@@ -19,16 +19,17 @@ export class RecipeListComponent implements OnInit {
       "Patal Ke Chatni is madeup of tomato and cooked in a mild flame for long time.",
       "https://1.bp.blogspot.com/-w-6jFe4uSPs/Wm4fLYkMOsI/AAAAAAAAcE4/ekS0PDPfreU5-xDKVXN-hbAm68AfrekjgCLcBGAs/s1600/Fara%252C%2BRice%2Bflour%2BDumplings.jpg"
     ),
-    new Recipe(
-      "Patal Ke Chatni: A delicious tomato dish",
-      "Patal Ke Chatni is madeup of tomato and cooked in a mild flame for long time.",
-      "https://1.bp.blogspot.com/-w-6jFe4uSPs/Wm4fLYkMOsI/AAAAAAAAcE4/ekS0PDPfreU5-xDKVXN-hbAm68AfrekjgCLcBGAs/s1600/Fara%252C%2BRice%2Bflour%2BDumplings.jpg"
-    ),
+
   ];
+  @Output() recipeSelected = new EventEmitter<Recipe>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeSelected.emit(recipe);
   }
 
 }

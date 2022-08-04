@@ -1,7 +1,7 @@
 <br />
 <div class="row">
   <div class="col-md-12">
-    <h1>Recipe Name</h1>
+    <h1>{{ recipe.rname }}</h1>
   </div>
   <div class="col-md-12">
     <div class="dropdown">
@@ -20,6 +20,14 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12">Description</div>
+  <div class="col-md-12">
+    <br />
+    <img [src]="recipe.imagePath" height="150px" />
+    <hr />
+    Description:
+    <br />
+    <p>{{ recipe.description }}</p>
+  </div>
+
   <div class="col-md-12">Ingredients</div>
 </div>
