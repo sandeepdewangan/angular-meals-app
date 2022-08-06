@@ -1,9 +1,9 @@
 import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from "../recipes/model/ingredient.model";
 
 export class ShoppingListService {
-    // to get newly inserted data of ingredient we can user emitter.
-    ingredientChanged = new EventEmitter<Ingredient[]>();
+    ingredientChanged = new Subject<Ingredient[]>();
     private ingredients: Ingredient[] = [
     ];
 
@@ -14,7 +14,7 @@ export class ShoppingListService {
     addIngredient(ing: Ingredient) {
         this.ingredients.push(ing);
         // update to all that new data is available
-        this.ingredientChanged.emit(this.ingredients.slice());
+        this.ingredientChanged.next(this.ingredients.slice());
     }
 
     addIngredients(ingredients: Ingredient[]) {
@@ -28,7 +28,7 @@ export class ShoppingListService {
         // Method 02:
         this.ingredients.push(...ingredients);
         // Now emit event
-        this.ingredientChanged.emit(this.ingredients.slice());
+        this.ingredientChanged.next(this.ingredients.slice());
     }
 
 }
