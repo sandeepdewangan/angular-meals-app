@@ -3,8 +3,8 @@
 <hr />
 <div class="row">
   <div class="col-md-12">
-    <div class="card" *ngFor="let recipeEl of recipes">
-      <app-recipe-item [recipe]="recipeEl"></app-recipe-item>
+    <div class="card" *ngFor="let recipeEl of recipes; let i = index">
+      <app-recipe-item [recipe]="recipeEl" [index]="i"></app-recipe-item>
     </div>
   </div>
 </div>
