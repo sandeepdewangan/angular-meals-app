@@ -4,10 +4,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card" *ngFor="let recipeEl of recipes">
-      <app-recipe-item
-        [recipe]="recipeEl"
-        (selectedRecipe)="onRecipeSelected(recipeEl)"
-      ></app-recipe-item>
+      <app-recipe-item [recipe]="recipeEl"></app-recipe-item>
     </div>
   </div>
 </div>
